@@ -1,0 +1,35 @@
+{
+  "name": "native-bridge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:dev": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat compile",
+    "compile:prod": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat compile",
+    "deploy:bridge:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/bridge/deploy.js --network ethereum",
+    "deploy:bridge:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/bridge/deploy.js --network sepolia",
+    "deploy:hyperlane:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/bridge/hyperlane/deploy.js --network ethereum",
+    "deploy:hyperlane:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/bridge/hyperlane/deploy.js --network sepolia",
+    "deploy:hyperlane:bsc": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/bridge/hyperlane/deploy.js --network bsc",
+    "deploy:hyperlane:bsc-testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/bridge/hyperlane/deploy.js --network bscTestnet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@chainlink/contracts": "^1.4.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.5.0",
+    "hardhat": "^2.24.0",
+    "hardhat-contract-sizer": "^2.10.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts-ccip": "^1.6.0",
+    "@hyperlane-xyz/core": "^9.0.2",
+    "@hyperlane-xyz/sdk": "^13.2.1",
+    "@layerzerolabs/solidity-examples": "^1.1.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.0",
+    "@openzeppelin/contracts": "^4.9.2"
+  }
+}

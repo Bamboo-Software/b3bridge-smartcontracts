@@ -1,0 +1,26 @@
+{
+  "name": "b3bridge-cosmos",
+  "scripts": {
+    "compile:dev": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat compile",
+    "compile:prod": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat compile",
+    "deploy:bridge:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/bridge/deploy.js --network seimainnet",
+    "deploy:bridge:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/bridge/deploy.js --network sei",
+    "deploy:hyperlane:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/bridge/hyperlane/deploy_hyperlane.js --network seimainnet",
+    "deploy:hyperlane:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/bridge/hyperlane/deploy_hyperlane.js --network sei",
+    "deploy:weth:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/customCoins/deployWETH.js --network seimainnet",
+    "deploy:weth:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/customCoins/deployWETH.js --network sei",
+    "deploy:wusdc:mainnet": "test ! -f .env && test -f .env.prod && cp .env.prod .env; npx hardhat run scripts/customCoins/deployWUSDC.js --network seimainnet",
+    "deploy:wusdc:testnet": "test ! -f .env && test -f .env.dev && cp .env.dev .env; npx hardhat run scripts/customCoins/deployWUSDC.js --network sei"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "hardhat": "^2.24.2"
+  },
+  "dependencies": {
+    "@chainlink/contracts-ccip": "^1.6.0",
+    "@hyperlane-xyz/core": "^9.0.2",
+    "@openzeppelin/contracts": "^5.3.0",
+    "dotenv": "^16.6.1"
+  }
+}
